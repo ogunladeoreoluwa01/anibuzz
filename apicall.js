@@ -1,4 +1,4 @@
-
+/** @format */
 
 const url = "https://graphql.anilist.co/query";
 const query = `
@@ -108,18 +108,13 @@ fetch(url, {
 })
 	.then((response) => response.json())
 	.then((json) => {
-		console.log(json.data.season);
-
+		const media2 = json.data.trending.media;
 		const medias = json.data.season.media;
 
-		let carosel = ""; // Declare carosel variable outside the loop
+		let carosel = "";
+		let card1 = "";
 
 		medias.forEach((element, index) => {
-			console.log(index, element);
-			console.log(element.title.userPreferred);
-			console.log(element.bannerImage.toString());
-			console.log(element.description);
-
 			carosel = `<div class="heroCaroselInfo ${
 				index !== 0 ? "invisible" : ""
 			}" id="carousel">
@@ -145,6 +140,23 @@ fetch(url, {
 				.querySelector(".heroCarosel")
 				.insertAdjacentHTML("beforeend", carosel);
 		});
+
+		media2.forEach((e) => {
+			card1 = ` <div class="cardContainer" id="trending">
+	<div class="card">
+		<div class="first-content">
+			<img src="${e.coverImage.large}" alt="" srcset="">
+		</div>
+	</div>
+	<div class="cardName">
+		<p>${e.title.userPreferred} </p>
+	</div>
+</div>`;
+
+			document
+				.querySelector(".showCaseAnime")
+				.insertAdjacentHTML("beforeend", card1);
+		});
 	})
 	.catch((error) => {
 		const errorMessage = "Error fetching AniList trending anime:";
@@ -152,40 +164,39 @@ fetch(url, {
 		console.error(errorMessage, error);
 	});
 
-	const buttons = document.querySelectorAll(".btn"); // Declare buttons as const
-	let currentCarouselIndex = 0;
-	
-	const handleCarousel = (index) => {
-	  const carousels = document.querySelectorAll(".heroCaroselInfo"); // No need to reassign buttons
-	  console.log(index, carousels.length);
-	
-	  buttons.forEach((btn) => {
+const buttons = document.querySelectorAll(".btn"); // Declare buttons as const
+let currentCarouselIndex = 0;
+
+const handleCarousel = (index) => {
+	const carousels = document.querySelectorAll(".heroCaroselInfo"); // No need to reassign buttons
+	console.log(index, carousels.length);
+
+	buttons.forEach((btn) => {
 		btn.classList.remove("caroActive");
-	  });
-	
-	  buttons[index].classList.add("caroActive");
-	
-	  carousels.forEach((carousel) => {
+	});
+
+	buttons[index].classList.add("caroActive");
+
+	carousels.forEach((carousel) => {
 		carousel.classList.add("invisible");
-	  });
-	
-	  carousels[index].classList.remove("invisible");
-	};
-	
-	const startTimer = () => {
-	  const carousels = document.querySelectorAll(".heroCaroselInfo"); // No need to reassign buttons
-	
-	  setInterval(() => {
+	});
+
+	carousels[index].classList.remove("invisible");
+};
+
+const startTimer = () => {
+	const carousels = document.querySelectorAll(".heroCaroselInfo"); // No need to reassign buttons
+
+	setInterval(() => {
 		currentCarouselIndex = (currentCarouselIndex + 1) % carousels.length;
 		handleCarousel(currentCarouselIndex);
-	  }, 100000000000000000000); // Set the time interval here (in milliseconds)
-	};
-	
-	buttons.forEach((btn, index) => {
-	  btn.addEventListener("click", () => {
+	}, 100000000000000000000); // Set the time interval here (in milliseconds)
+};
+
+buttons.forEach((btn, index) => {
+	btn.addEventListener("click", () => {
 		handleCarousel(index);
-	  });
 	});
-	
-	startTimer();
-	
+});
+
+startTimer();
