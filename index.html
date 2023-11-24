@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animenewsapp</title>
+    <link href="assets/css/fontawesome.css" rel="stylesheet">
+    <link href="assets/css/brands.css" rel="stylesheet">
+    <link href="assets/css/solid.css" rel="stylesheet">
+    <link href="assets/css/regular.css" rel="stylesheet">
+    <link rel="stylesheet" href="/cssmain/main.css">
+    <!-- npx tailwindcss -i assets/css/index.css -o tailwind/output.css --watch -->
+</head>
+
+<body>
+    <!-- nav begins -->
+    <nav>
+        <div class="mainNavContainer">
+            <div class="logoContainer">
+                <a href="#">
+                    <h1 class="logoEnglish">Ani-<span>Buzz</span></h1>
+                    <p class="japText">アニバズ</p>
+                </a>
+
+            </div>
+            <div class="navLinksContainer">
+                <div class="link"><a href="#">search</a></div>
+                <div class="link"><a href="#">Manga</a></div>
+                <div class="link"><a href="#">Top 100</a></div>
+                <div class="link"><a href="#">upcoming</a></div>
+
+
+            </div>
+            <div class="userauth">
+                <a href="#"> <button class="mainBtn"> Login
+                    </button></a>
+
+
+
+            </div>
+        </div>
+    </nav>-
+    <!-- navbar end -->
+    <!-- hero section begins -->
+    <section class="hero">
+
+        <div class="caroselnameandinfo">
+            <h1>Most <span class="bluespan">viewed</span> this season :
+            </h1>
+        </div>
+
+
+
+        <div class="heroCarosel">
+
+        </div>
+
+
+
+        <div class="changeButton">
+            <button class="caro btn caroActive">.</button>
+            <button class="caro btn">.</button>
+            <button class="caro btn">.</button>
+            <button class="caro btn">.</button>
+            <button class="caro btn">.</button>
+        </div>
+
+
+    </section>
+    <section class="showcaseAnime">
+        <div class="showcaseContainer">
+            <div class="showcaseText">
+                <h1><span class="bluespan">Trending </span>Anime:</h1>
+            </div>
+            <div class="showCaseAnime">
+                <div class="cardContainer" id="trending">
+                    <div class="card">
+                        <div class="first-content">
+                            <img src="assets/image 22.png" alt="" srcset="">
+                        </div>
+
+                        <div class="second-content">
+                            <span>Second</span>
+                        </div>
+
+
+                    </div>
+                    <div class="cardName">
+                        <p>anime name </p>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="showBtn"><button class="darkBtn">see more</button></a>
+        </div>
+
+    </section>
+    <section class="showcaseAnimeWhite">
+        <div class="showcaseContainerWhite">
+            <div class="showcaseTextWhite">
+                <h1><span class="bluespan">Upcoming </span>Anime:</h1>
+            </div>
+            <div class="showCaseAnimeWhite">
+                <div class="cardContainer" id="upcoming">
+                    <div class="cardWhite">
+                        <div class="first-contentWhite">
+                            <img src="assets/image 22.png" alt="" srcset="">
+                        </div>
+
+                        <div class="second-contentWhite">
+                            <span>Second</span>
+                        </div>
+
+
+                    </div>
+                    <div class="cardNameWhite">
+                        <p>anime name </p>
+                    </div>
+                </div>
+
+            </div>
+            <a href="#" class="showBtn"><button class="mainBtn">see more</button></a>
+        </div>
+
+    </section>
+
+
+    <section class="showcaseAnime">
+        <div class="showcaseContainer">
+            <div class="showcaseText">
+                <h1>All<span class="bluespan"> Time </span>Popular:</h1>
+            </div>
+            <div class="showCaseAnime">
+                <div class="cardContainer" id="allTime">
+                    <div class="card">
+                        <div class="first-content">
+                            <img src="assets/image 22.png" alt="" srcset="">
+                        </div>
+
+                        <div class="second-content">
+                            <span>Second</span>
+                        </div>
+
+
+                    </div>
+                    <div class="cardName">
+                        <p>anime name </p>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="showBtn"><button class="darkBtn">see more</button></a>
+        </div>
+
+    </section>
+
+    <script src="apicall.js"></script>
+    <!-- <script src="apaicallforcarosel.js"></script> -->
+    <!-- <script src="responsiveness"></script> -->
+</body>
+
+</html>
