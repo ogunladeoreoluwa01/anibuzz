@@ -127,10 +127,18 @@ fetch(url, {
 			carosel = `<div class="heroCaroselInfo ${
 				index !== 0 ? "invisible" : ""
 			}" id="carousel" data-id="${element.id}">
-            <div class="caroselImg">
-              <img src="${element.coverImage.extraLarge}" alt="">
+            <div class="caroselImg" >
+              <img src="${
+								element.coverImage.extraLarge
+							}" alt="" style="border-top: 0.25rem solid ${
+				element.coverImage.color
+			}; border-left: 0.25rem solid ${element.coverImage.color};"
+              ;">
             </div>
-            <div class="heroinfo">
+            <div class="heroinfo" style="border-bottom: 0.25rem solid ${
+							element.coverImage.color
+						}; border-right: 0.25rem solid ${element.coverImage.color};"
+            >
               <div class="heroName">
                 <h1><span style="color:${element.coverImage.color};">[</span>${
 				element.title.userPreferred
@@ -142,7 +150,9 @@ fetch(url, {
                 <h1>Synopsis</h1>
                 <p>${element.description.toString()}</p>
               </div>
-              <button class="mainBtn herobtn">See more</button>
+              <button class="darkBtn herobtn" data-id="${
+								element.id
+							}" >See more</button>
             </div>
           </div>`;
 			document
@@ -199,70 +209,37 @@ fetch(url, {
 </div>`;
 			document.querySelector("#Popular").insertAdjacentHTML("beforeend", card3);
 		});
-		// season
-		// seasonYear
-		// format
-		// status
-		// episodes
-		// genres
-		// averageScore
-		// popularity
-		// studios
+
 		let ranking = 0;
 
 		media5.forEach((e) => {
-      // const heart = document.querySelectorAll(".heart");
-      // const smile = document.querySelectorAll(".smile");
-      // const grin = document.querySelectorAll(".grin");
-      // const sad = document.querySelectorAll(".sad");
-      // const dizzy = document.querySelectorAll(".dizzy");
-      // function for incrementing the ranking numbers
-      increment = ++ranking;
-      console.log(increment);
+			increment = ++ranking;
 
-      // let rating =e.averageScore
-      // heart.classList.add("invisible");
-      // smile.classList.add("invisible");
-      // grin.classList.add("invisible");
-      // sad.classList.add("invisible");
-      // dizzy.classList.add("invisible");
-  
-      // Show the element based on the rating
-      // if (rating >= 80) {
-      //     heart.classList.toggle("invisible", false);
-      //     console.log("😍 Excellent!", rating);
-      // } else if (rating >= 60) {
-      //     smile.classList.toggle("invisible", false);
-      //     console.log("👍 Good job!");
-      // } else if (rating >= 40) {
-      //     grin.classList.toggle("invisible", false);
-      //     console.log("😊 Not bad!");
-      // } else if (rating >= 20) {
-      //     sad.classList.toggle("invisible", false);
-      //     console.log("😐 Room for improvement.");
-      // } else {
-      //     dizzy.classList.toggle("invisible", false);
-      //     console.log("😕 Needs work.");
-      // }
+			const genres = e.genres;
 
-  const topcard = `
-  <div class="cardSection" data-id="">
+			const genreElements = genres
+				.map(
+					(genre) => `
+    <a href="#" style="background-color:${e.coverImage.color} ;" data-id="${genre}"> ${genre}</a>
+  `
+				)
+				.join("");
+
+			const topcard = `
+  <div class="cardSection" data-id="${e.id}">
   <div class="ranking">
 
-      <p class="rankingText" style="color: brown;">#${increment}</p>
+      <p class="rankingText" style="color: ${e.coverImage.color}";>#${increment}</p>
   </div>
   <div class="mainCard">
       <div class="leftsection">
           <div class="mainCardImgSection">
-              <img src=${} alt="" class="maincardImg">
+              <img src=${e.coverImage.large} alt=${e.title.userPreferred} class="maincardImg">
           </div>
           <div class="nameNdGener">
-              <h3 class="animeName">The Seven Deadly Sins <span class="studio"
-                      style="color: brown;">studio</span></h3>
+              <h3 class="animeName">${e.title.userPreferred}</h3>
               <div class="gener">
-                  <a href="#" style="background-color: yellow;" data-id=""> Action</a>
-                  <a href="#" style="background-color: yellow;" data-id=""> Action</a>
-                  <a href="#" style="background-color: yellow;" data-id=""> Action</a>
+              ${genreElements}
 
               </div>
           </div>
@@ -270,7 +247,7 @@ fetch(url, {
       <div class="rightsection">
 
           <div class="ratingemoji">
-              <h3>90%</h3>
+              <h3>${e.averageScore}%</h3>
               <i class="fa-regular fa-face-grin-hearts good  heart"></i>
               <i class="fa-regular fa-face-smile good invisible smile"></i>
               <i class="fa-regular fa-face-grin-beam-sweat average invisible grin"></i>
@@ -279,15 +256,14 @@ fetch(url, {
 
           </div>
           <div class="episodeinfo">
-              <h3>tv</h3>
-              <h4>episodes</h4>
+              <h3>${e.format}</h3>
+              <h4>${e.episodes}episodes</h4>
           </div>
           <div class="seasonsinfo">
-              <h3>season,season year</h3>
-              <h4>status</h4>
+              <h3>${e.season},${e.seasonYear}</h3>
+              <h4>${e.status}</h4>
           </div>
       </div>
-
 
 
 
@@ -309,13 +285,8 @@ fetch(url, {
 			document
 				.querySelector("#top100Container")
 				.insertAdjacentHTML("beforeend", topcard);
-       
-    
 		});
- 
-  })
-
-
+	})
 
 	.catch((error) => {
 		const errorMessage = "Error fetching AniList trending anime:";
@@ -323,39 +294,46 @@ fetch(url, {
 		console.error(errorMessage, error);
 	});
 
-const buttons = document.querySelectorAll(".btn"); // Declare buttons as const
-let currentCarouselIndex = 0;
+document.addEventListener("DOMContentLoaded", function () {
+	const buttons = document.querySelectorAll(".btn"); // Declare buttons as const
+	let currentCarouselIndex = 0;
 
-const handleCarousel = (index) => {
-	const carousels = document.querySelectorAll(".heroCaroselInfo"); // No need to reassign buttons
-	console.log(index, carousels.length);
+	const handleCarousel = (index) => {
+		const carousels = document.querySelectorAll(".heroCaroselInfo"); // No need to reassign buttons
+		console.log(index, carousels.length);
 
-	buttons.forEach((btn) => {
-		btn.classList.remove("caroActive");
-	});
+		buttons.forEach((btn) => {
+			btn.classList.remove("caroActive");
+		});
 
-	buttons[index].classList.add("caroActive");
+		buttons[index].classList.add("caroActive");
 
-	carousels.forEach((carousel) => {
-		carousel.classList.add("invisible");
-	});
+		carousels.forEach((carousel) => {
+			carousel.classList.add("invisible");
+		});
 
-	carousels[index].classList.remove("invisible");
-};
-
-const startTimer = () => {
-	const carousels = document.querySelectorAll(".heroCaroselInfo"); // No need to reassign buttons
-
-	setInterval(() => {
-		currentCarouselIndex = (currentCarouselIndex + 1) % carousels.length;
-		handleCarousel(currentCarouselIndex);
-	}, 100000000000000000000); // Set the time interval here (in milliseconds)
-};
-
-buttons.forEach((btn, index) => {
-	btn.addEventListener("click", () => {
-		handleCarousel(index);
+		carousels[index].classList.remove("invisible");
+	};
+	buttons.forEach((btn, index) => {
+		btn.addEventListener("click", () => {
+			handleCarousel(index);
+		});
 	});
 });
 
-startTimer();
+// const startTimer = () => {
+// 	const carousels = document.querySelectorAll(".heroCaroselInfo"); // No need to reassign buttons
+
+// 	setInterval(() => {
+// 		currentCarouselIndex = (currentCarouselIndex + 1) % carousels.length;
+// 		handleCarousel(currentCarouselIndex);
+// 	}, 100000000000000000000); // Set the time interval here (in milliseconds)
+// };
+
+// buttons.forEach((btn, index) => {
+// 	btn.addEventListener("click", () => {
+// 		handleCarousel(index);
+// 	});
+// });
+
+// startTimer();
