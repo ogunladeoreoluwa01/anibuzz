@@ -89,12 +89,12 @@ query($season: MediaSeason, $seasonYear: Int, $nextSeason: MediaSeason, $nextYea
 
 // Define variables, including the perPage variable
 const variables = {
-  type:"ANIME",
-  season:"FALL",
-  seasonYear: 2022,
-  nextSeason:"WINTER",
-  nextYear:2024,
-  // You can adjust this value based on your requirements
+	type: "ANIME",
+	season: "FALL",
+	seasonYear: 2022,
+	nextSeason: "WINTER",
+	nextYear: 2024,
+	// You can adjust this value based on your requirements
 };
 
 // Now you can use this query and variables in your GraphQL request
@@ -108,15 +108,16 @@ fetch(url, {
 		client: "15430",
 		client_secret: "0LDTy3O2LhkXP7UdgcRWH3OkD7Vr2df1daKZAmau",
 		query: query,
-		variables:variables,
+		variables: variables,
 	}),
 })
 	.then((response) => response.json())
 	.then((json) => {
-    console.log(json)
-    // const media5 = json.data.top.media
-    const medias4 =json.data.popular.media
-    const medias3 =json.data.nextSeason.media;
+		console.log(json);
+		// const media5 = json.data.top.media
+		const media5 = json.data.top.media;
+		const medias4 = json.data.popular.media;
+		const medias3 = json.data.nextSeason.media;
 		const medias2 = json.data.trending.media;
 		const medias = json.data.season.media;
 		let carosel = "";
@@ -127,7 +128,7 @@ fetch(url, {
 				index !== 0 ? "invisible" : ""
 			}" id="carousel" data-id="${element.id}">
             <div class="caroselImg">
-              <img src="${element.bannerImage}" alt="">
+              <img src="${element.coverImage.extraLarge}" alt="">
             </div>
             <div class="heroinfo">
               <div class="heroName">
@@ -165,8 +166,8 @@ fetch(url, {
 				.querySelector("#showCaseTrending")
 				.insertAdjacentHTML("beforeend", card1);
 		});
-    medias3.forEach(elem2 => {
-      card2=`
+		medias3.forEach((elem2) => {
+			card2 = `
       <div class="showCaseAnimeWhite">
       <div class="cardContainer" data-id="${elem2.id}">
           <div class="cardWhite">
@@ -181,12 +182,12 @@ fetch(url, {
 
   </div>
       `;
-      document
-      .querySelector("#showCaseUpcoming")
-      .insertAdjacentHTML("beforeend", card2);
-  });
-medias4.forEach(e=>{
-  card3=` <div class="cardContainer" id="trending">
+			document
+				.querySelector("#showCaseUpcoming")
+				.insertAdjacentHTML("beforeend", card2);
+		});
+		medias4.forEach((e) => {
+			card3 = ` <div class="cardContainer" id="trending">
 	<div class="card" data-id="${e.id}">
 		<div class="first-content">
 			<img src="${e.coverImage.large}" alt="${e.title.userPreferred}" srcset="">
@@ -196,18 +197,125 @@ medias4.forEach(e=>{
 		<p>${e.title.userPreferred} </p>
 	</div>
 </div>`;
-document
-.querySelector("#Popular")
-.insertAdjacentHTML("beforeend", card3);
+			document.querySelector("#Popular").insertAdjacentHTML("beforeend", card3);
+		});
+		// season
+		// seasonYear
+		// format
+		// status
+		// episodes
+		// genres
+		// averageScore
+		// popularity
+		// studios
+		let ranking = 0;
 
-});
+		media5.forEach((e) => {
+      // const heart = document.querySelectorAll(".heart");
+      // const smile = document.querySelectorAll(".smile");
+      // const grin = document.querySelectorAll(".grin");
+      // const sad = document.querySelectorAll(".sad");
+      // const dizzy = document.querySelectorAll(".dizzy");
+      // function for incrementing the ranking numbers
+      increment = ++ranking;
+      console.log(increment);
+
+      // let rating =e.averageScore
+      // heart.classList.add("invisible");
+      // smile.classList.add("invisible");
+      // grin.classList.add("invisible");
+      // sad.classList.add("invisible");
+      // dizzy.classList.add("invisible");
+  
+      // Show the element based on the rating
+      // if (rating >= 80) {
+      //     heart.classList.toggle("invisible", false);
+      //     console.log("😍 Excellent!", rating);
+      // } else if (rating >= 60) {
+      //     smile.classList.toggle("invisible", false);
+      //     console.log("👍 Good job!");
+      // } else if (rating >= 40) {
+      //     grin.classList.toggle("invisible", false);
+      //     console.log("😊 Not bad!");
+      // } else if (rating >= 20) {
+      //     sad.classList.toggle("invisible", false);
+      //     console.log("😐 Room for improvement.");
+      // } else {
+      //     dizzy.classList.toggle("invisible", false);
+      //     console.log("😕 Needs work.");
+      // }
+
+  const topcard = `
+  <div class="cardSection" data-id="">
+  <div class="ranking">
+
+      <p class="rankingText" style="color: brown;">#${increment}</p>
+  </div>
+  <div class="mainCard">
+      <div class="leftsection">
+          <div class="mainCardImgSection">
+              <img src=${} alt="" class="maincardImg">
+          </div>
+          <div class="nameNdGener">
+              <h3 class="animeName">The Seven Deadly Sins <span class="studio"
+                      style="color: brown;">studio</span></h3>
+              <div class="gener">
+                  <a href="#" style="background-color: yellow;" data-id=""> Action</a>
+                  <a href="#" style="background-color: yellow;" data-id=""> Action</a>
+                  <a href="#" style="background-color: yellow;" data-id=""> Action</a>
+
+              </div>
+          </div>
+      </div>
+      <div class="rightsection">
+
+          <div class="ratingemoji">
+              <h3>90%</h3>
+              <i class="fa-regular fa-face-grin-hearts good  heart"></i>
+              <i class="fa-regular fa-face-smile good invisible smile"></i>
+              <i class="fa-regular fa-face-grin-beam-sweat average invisible grin"></i>
+              <i class="fa-regular fa-face-sad-tear average invisible sad"></i>
+              <i class="fa-regular fa-face-dizzy bad invisible dizzy"></i>
+
+          </div>
+          <div class="episodeinfo">
+              <h3>tv</h3>
+              <h4>episodes</h4>
+          </div>
+          <div class="seasonsinfo">
+              <h3>season,season year</h3>
+              <h4>status</h4>
+          </div>
+      </div>
 
 
 
 
 
 
-    })
+  </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+`;
+			document
+				.querySelector("#top100Container")
+				.insertAdjacentHTML("beforeend", topcard);
+       
+    
+		});
+ 
+  })
+
+
 
 	.catch((error) => {
 		const errorMessage = "Error fetching AniList trending anime:";
@@ -234,7 +342,6 @@ const handleCarousel = (index) => {
 
 	carousels[index].classList.remove("invisible");
 };
-
 
 const startTimer = () => {
 	const carousels = document.querySelectorAll(".heroCaroselInfo"); // No need to reassign buttons
