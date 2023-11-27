@@ -89,7 +89,12 @@ query($season: MediaSeason, $seasonYear: Int, $nextSeason: MediaSeason, $nextYea
 
 // Define variables, including the perPage variable
 const variables = {
-	perPage: 6, // You can adjust this value based on your requirements
+  type:"ANIME",
+  season:"FALL",
+  seasonYear: 2022,
+  nextSeason:"WINTER",
+  nextYear:2024,
+  // You can adjust this value based on your requirements
 };
 
 // Now you can use this query and variables in your GraphQL request
@@ -103,23 +108,26 @@ fetch(url, {
 		client: "15430",
 		client_secret: "0LDTy3O2LhkXP7UdgcRWH3OkD7Vr2df1daKZAmau",
 		query: query,
-		variables,
+		variables:variables,
 	}),
 })
 	.then((response) => response.json())
 	.then((json) => {
-		const media2 = json.data.trending.media;
+    console.log(json)
+    // const media5 = json.data.top.media
+    const medias4 =json.data.popular.media
+    const medias3 =json.data.nextSeason.media;
+		const medias2 = json.data.trending.media;
 		const medias = json.data.season.media;
-
 		let carosel = "";
 		let card1 = "";
 
 		medias.forEach((element, index) => {
 			carosel = `<div class="heroCaroselInfo ${
 				index !== 0 ? "invisible" : ""
-			}" id="carousel">
+			}" id="carousel" data-id="${element.id}">
             <div class="caroselImg">
-              <img src="${element.bannerImage.toString()}" alt="">
+              <img src="${element.bannerImage}" alt="">
             </div>
             <div class="heroinfo">
               <div class="heroName">
@@ -141,11 +149,11 @@ fetch(url, {
 				.insertAdjacentHTML("beforeend", carosel);
 		});
 
-		media2.forEach((e) => {
+		medias2.forEach((e) => {
 			card1 = ` <div class="cardContainer" id="trending">
-	<div class="card">
+	<div class="card" data-id="${e.id}">
 		<div class="first-content">
-			<img src="${e.coverImage.large}" alt="" srcset="">
+			<img src="${e.coverImage.large}" alt="${e.title.userPreferred}" srcset="">
 		</div>
 	</div>
 	<div class="cardName">
@@ -154,10 +162,53 @@ fetch(url, {
 </div>`;
 
 			document
-				.querySelector(".showCaseAnime")
+				.querySelector("#showCaseTrending")
 				.insertAdjacentHTML("beforeend", card1);
 		});
-	})
+    medias3.forEach(elem2 => {
+      card2=`
+      <div class="showCaseAnimeWhite">
+      <div class="cardContainer" data-id="${elem2.id}">
+          <div class="cardWhite">
+              <div class="first-contentWhite">
+                  <img src="${elem2.coverImage.large}" alt="${elem2.title.userPreferred}" srcset="">
+              </div>
+          </div>
+          <div class="cardNameWhite">
+              <p>${elem2.title.userPreferred} </p>
+          </div>
+      </div>
+
+  </div>
+      `;
+      document
+      .querySelector("#showCaseUpcoming")
+      .insertAdjacentHTML("beforeend", card2);
+  });
+medias4.forEach(e=>{
+  card3=` <div class="cardContainer" id="trending">
+	<div class="card" data-id="${e.id}">
+		<div class="first-content">
+			<img src="${e.coverImage.large}" alt="${e.title.userPreferred}" srcset="">
+		</div>
+	</div>
+	<div class="cardName">
+		<p>${e.title.userPreferred} </p>
+	</div>
+</div>`;
+document
+.querySelector("#Popular")
+.insertAdjacentHTML("beforeend", card3);
+
+});
+
+
+
+
+
+
+    })
+
 	.catch((error) => {
 		const errorMessage = "Error fetching AniList trending anime:";
 
@@ -183,6 +234,7 @@ const handleCarousel = (index) => {
 
 	carousels[index].classList.remove("invisible");
 };
+
 
 const startTimer = () => {
 	const carousels = document.querySelectorAll(".heroCaroselInfo"); // No need to reassign buttons
