@@ -1,0 +1,308 @@
+/** @format */
+
+nav {
+	background-image: url(/assets/Fondo\ Top\ Dark.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 10px;
+	z-index: 10000000;
+	margin: 2rem 2.5rem;
+	height: 4.5rem;
+	width: 115rem;
+	/* position: fixed; */
+	/* background-color: #141414; */
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+}
+
+.mainNavContainer {
+	margin-left: 20px;
+	margin-left: 20px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+	gap: 600px;
+}
+.logoContainer {
+	margin: 2px;
+	align-self: center;
+}
+.logoContainer a {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-decoration: none;
+	color: #e8e6d8;
+}
+.logoContainer p {
+	font-weight: 500;
+}
+
+.logoEnglish {
+	font-weight: 800;
+}
+
+.logoEnglish span {
+	font-size: 1.875rem;
+	color: #19a6ba;
+}
+.logoContainer {
+	transition: all 0.25s ease;
+}
+
+.navLinksContainer {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.link {
+	align-self: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.link a {
+	text-decoration: none;
+	color: #e8e6d8;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 550;
+	line-height: normal;
+}
+
+.link a {
+	position: relative;
+	display: inline-block;
+	padding: 0.3125rem 0.625rem;
+	border-radius: 0.625rem;
+	text-decoration: none;
+	transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+}
+
+.link a:hover,
+.link a:active {
+	font-weight: 900;
+	text-decoration: none;
+
+	&:after {
+		content: "";
+		position: absolute;
+		bottom: -0.125rem;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 2rem;
+		height: 0.15625rem;
+		background-color: #19a6ba;
+		border-radius: 30%;
+		transform: translateX(-50%);
+	}
+}
+/* .nav-colored{
+	background-color: #141414;
+}
+.nav-transparent{
+	background-color: transparent;
+} */
+.mainNavContainer .mainBtn {
+	margin-right: 0px;
+}
+.mainBtn {
+	margin-right: 20px;
+}
+.mainBtn {
+	background: #f6f6f6;
+	font-family: inherit;
+	width: auto;
+	padding: 0.5rem 1rem;
+	font-weight: 700;
+	font-size: 1.125rem;
+	border: 0.125rem solid black;
+	border-radius: 0.25rem;
+	box-shadow: 0.15em 0.15em;
+	text-align: center;
+	text-decoration: none;
+	transform: translateY(-0.2em);
+	transition: all 0.25s ease;
+	-webkit-border-radius: 0.25rem;
+	-moz-border-radius: 0.25rem;
+	-ms-border-radius: 0.25rem;
+	-o-border-radius: 0.25rem;
+	-webkit-transition: all 0.25s ease;
+	-moz-transition: all 0.25s ease;
+	-ms-transition: all 0.25s ease;
+	-o-transition: all 0.25s ease;
+}
+
+.mainBtn:hover {
+	font-weight: 800;
+	transform: translateY(-0.33em);
+	-webkit-transform: translateY(-0.33em);
+	-moz-transform: translateY(-0.33em);
+	-ms-transform: translateY(-0.33em);
+	-o-transform: translateY(-0.33em);
+}
+
+.mainBtn:active {
+	transform: translateY(0);
+}
+.darkBtn {
+	color: #e8e6d8;
+	background: #141414;
+	font-family: inherit;
+
+	padding: 0.5rem 1rem;
+	font-weight: 700;
+	font-size: 1.125rem;
+	border: 0.125rem solid #e8e6d8;
+	border-radius: 0.25rem;
+	box-shadow: 0.15em 0.15em;
+	text-align: center;
+	text-decoration: none;
+	transform: translateY(-0.2em);
+	transition: all 0.25s ease;
+	-webkit-border-radius: 0.25rem;
+	-moz-border-radius: 0.25rem;
+	-ms-border-radius: 0.25rem;
+	-o-border-radius: 0.25rem;
+	-webkit-transition: all 0.25s ease;
+	-moz-transition: all 0.25s ease;
+	-ms-transition: all 0.25s ease;
+	-o-transition: all 0.25s ease;
+}
+.darkBtn:hover {
+	font-weight: 800;
+	transform: translateY(-0.33em);
+	-webkit-transform: translateY(-0.33em);
+	-moz-transform: translateY(-0.33em);
+	-ms-transform: translateY(-0.33em);
+	-o-transform: translateY(-0.33em);
+}
+
+.darkBtn:active {
+	transform: translateY(0);
+}
+.card {
+	flex-basis: 15rem;
+	height: 20rem;
+	transition: all 0.4s;
+	border-radius: 0.125rem;
+	font-size: 30px;
+	font-weight: 900;
+	-webkit-border-radius: 0.125rem;
+	-moz-border-radius: 0.125rem;
+	-ms-border-radius: 0.125rem;
+	-o-border-radius: 0.125rem;
+}
+.card img {
+	border-radius: 0.125rem;
+	flex-basis: 15rem;
+	height: 20rem;
+	text-align: center;
+	text-decoration: none;
+}
+
+.first-content {
+	transition: transform 0.1s ease;
+	color: #19a6ba;
+	height: 100%;
+	width: 100%;
+	transition: all 0.4s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 1;
+	border-radius: 0.125rem;
+	cursor: pointer;
+	-webkit-border-radius: 0.125rem;
+	-moz-border-radius: 0.125rem;
+	-ms-border-radius: 0.125rem;
+	-o-border-radius: 0.125rem;
+}
+
+.first-content:hover {
+	box-shadow: 0.25em 0.25em;
+	font-weight: 800;
+	transform: translateY(-0.33em);
+	-webkit-transform: translateY(-0.33em);
+	-moz-transform: translateY(-0.33em);
+	-ms-transform: translateY(-0.33em);
+	-o-transform: translateY(-0.33em);
+}
+.cardContainer:hover .cardName {
+	color: #19a6ba;
+}
+.cardWhite {
+	flex-basis: 15rem;
+	height: 20rem;
+	transition: all 0.4s;
+	border-radius: 0.125rem;
+	font-size: 1.875rem;
+	font-weight: 900;
+	-webkit-border-radius: 0.125rem;
+	-moz-border-radius: 0.125rem;
+	-ms-border-radius: 0.125rem;
+	-o-border-radius: 0.125rem;
+}
+.cardWhite img {
+	border-radius: 0.125rem;
+	flex-basis: 15rem;
+	height: 20rem;
+	text-align: center;
+	text-decoration: none;
+}
+
+.cardWhite:hover {
+	border-radius: 0.9375rem;
+	cursor: pointer;
+	transform: translate(-0.05em, -0.05em);
+	/* box-shadow: 0.625rem 0.625rem #141414; */
+	border-radius: 0.25rem;
+	transition: box-shadow 0.5s ease;
+	-webkit-transition: box-shadow 0.5s ease;
+	-moz-transition: box-shadow 0.5s ease;
+	-ms-transition: box-shadow 0.5s ease;
+	-o-transition: box-shadow 0.5s ease;
+}
+
+.first-contentWhite {
+	transition: transform 0.1s ease;
+	color: #19a6ba;
+	height: 100%;
+	width: 100%;
+	transition: all 0.4s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 1;
+	border-radius: 0.125rem;
+	cursor: pointer;
+	-webkit-border-radius: 0.125rem;
+	-moz-border-radius: 0.125rem;
+	-ms-border-radius: 0.125rem;
+	-o-border-radius: 0.125rem;
+}
+.first-contentWhite:hover {
+	border-radius: 0.125rem;
+	box-shadow: 0.25em 0.25em;
+	font-weight: 800;
+	transform: translateY(-0.33em);
+	-webkit-transform: translateY(-0.33em);
+	-moz-transform: translateY(-0.33em);
+	-ms-transform: translateY(-0.33em);
+	-o-transform: translateY(-0.33em);
+	-webkit-border-radius: 0.125rem;
+	-moz-border-radius: 0.125rem;
+	-ms-border-radius: 0.125rem;
+	-o-border-radius: 0.125rem;
+}
+
+.cardContainer:hover .cardNameWhite {
+	color: #19a6ba;
+}

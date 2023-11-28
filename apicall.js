@@ -231,7 +231,7 @@ fetch(url, {
 
       <p class="rankingText" style="color: ${e.coverImage.color}";>#${increment}</p>
   </div>
-  <div class="mainCard">
+  <div class="mainCard" style="border-bottom: 0.25rem solid ${e.coverImage.color}; border-right: 0.25rem solid ${e.coverImage.color};">
       <div class="leftsection">
           <div class="mainCardImgSection">
               <img src=${e.coverImage.large} alt=${e.title.userPreferred} class="maincardImg">
