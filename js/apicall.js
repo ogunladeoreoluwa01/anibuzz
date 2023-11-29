@@ -150,9 +150,9 @@ fetch(url, {
                 <h1>Synopsis</h1>
                 <p>${element.description.toString()}</p>
               </div>
-              <button class="darkBtn herobtn" data-id="${
+              <a href="#"><button class="darkBtn herobtn" data-id="${
 								element.id
-							}" >See more</button>
+							}" >See more</button></a>
             </div>
           </div>`;
 			document
@@ -161,7 +161,7 @@ fetch(url, {
 		});
 
 		medias2.forEach((e) => {
-			card1 = ` <div class="cardContainer" id="trending">
+			card1 = `  <a href="#">
 	<div class="card" data-id="${e.id}">
 		<div class="first-content">
 			<img src="${e.coverImage.large}" alt="${e.title.userPreferred}" srcset="">
@@ -170,15 +170,16 @@ fetch(url, {
 	<div class="cardName">
 		<p>${e.title.userPreferred} </p>
 	</div>
-</div>`;
+
+      </a>`;
 
 			document
 				.querySelector("#showCaseTrending")
 				.insertAdjacentHTML("beforeend", card1);
 		});
 		medias3.forEach((elem2) => {
-			card2 = `
-      <div class="showCaseAnimeWhite">
+			card2 = `<a href="#" class="showCaseAnimeWhite">
+      
       <div class="cardContainer" data-id="${elem2.id}">
           <div class="cardWhite">
               <div class="first-contentWhite">
@@ -190,14 +191,18 @@ fetch(url, {
           </div>
       </div>
 
-  </div>
+ 
+      
+      </a>
+      
       `;
 			document
 				.querySelector("#showCaseUpcoming")
 				.insertAdjacentHTML("beforeend", card2);
 		});
 		medias4.forEach((e) => {
-			card3 = ` <div class="cardContainer" id="trending">
+			card3 = ` <a href="#">
+      <div class="cardContainer">
 	<div class="card" data-id="${e.id}">
 		<div class="first-content">
 			<img src="${e.coverImage.large}" alt="${e.title.userPreferred}" srcset="">
@@ -206,7 +211,9 @@ fetch(url, {
 	<div class="cardName">
 		<p>${e.title.userPreferred} </p>
 	</div>
-</div>`;
+</div>
+      
+      </a>`;
 			document.querySelector("#Popular").insertAdjacentHTML("beforeend", card3);
 		});
 
@@ -220,68 +227,60 @@ fetch(url, {
 			const genreElements = genres
 				.map(
 					(genre) => `
-    <a href="#" style="background-color:${e.coverImage.color} ;" data-id="${genre}"> ${genre}</a>
+    <a href="#" class="genres" style="background-color:${e.coverImage.color} ;" data-id="${genre}"> ${genre}</a>
   `
 				)
 				.join("");
 
 			const topcard = `
-  <div class="cardSection" data-id="${e.id}">
-  <div class="ranking">
+    
+    <div class="cardSection">
+      <div class="ranking">
+        <p class="rankingText" style="color: ${e.coverImage.color};">#${ranking}</p>
+      </div>
 
-      <p class="rankingText" style="color: ${e.coverImage.color}";>#${increment}</p>
-  </div>
-  <div class="mainCard" style="border-bottom: 0.25rem solid ${e.coverImage.color}; border-right: 0.25rem solid ${e.coverImage.color};">
-      <div class="leftsection">
+      <div class="mainCard" style="border-bottom: 0.25rem solid ${e.coverImage.color}; border-right: 0.25rem solid ${e.coverImage.color};">
+        <div class="leftsection">
           <div class="mainCardImgSection">
-              <img src=${e.coverImage.large} alt=${e.title.userPreferred} class="maincardImg">
+          <a href="#" class="getLinkTop">
+            <img src=${e.coverImage.large} alt=${e.title.userPreferred} class="maincardImg">
+            </a>
           </div>
+
           <div class="nameNdGener">
-              <h3 class="animeName">${e.title.userPreferred}</h3>
-              <div class="gener">
-              ${genreElements}
-
-              </div>
+          <a href="#" class="getLinkTop" id="textlink" data-color="${e.coverImage.color}">
+          <h3 class="animeName">${e.title.userPreferred}</h3>
+          </a>
+            <div class="gener">${genreElements}</div>
           </div>
-      </div>
-      <div class="rightsection">
+        </div>
 
+        <div class="rightsection">
           <div class="ratingemoji">
-              <h3>${e.averageScore}%</h3>
-              <i class="fa-regular fa-face-grin-hearts good  heart"></i>
-              <i class="fa-regular fa-face-smile good invisible smile"></i>
-              <i class="fa-regular fa-face-grin-beam-sweat average invisible grin"></i>
-              <i class="fa-regular fa-face-sad-tear average invisible sad"></i>
-              <i class="fa-regular fa-face-dizzy bad invisible dizzy"></i>
+            <h3>${e.averageScore}%</h3>
 
+            <i class="fa-regular fa-face-grin-hearts good heart"></i>
+            <i class="fa-regular fa-face-smile good invisible smile"></i>
+            <i class="fa-regular fa-face-grin-beam-sweat average invisible grin"></i>
+            <i class="fa-regular fa-face-sad-tear average invisible sad"></i>
+            <i class="fa-regular fa-face-dizzy bad invisible dizzy"></i>
           </div>
+
           <div class="episodeinfo">
-              <h3>${e.format}</h3>
-              <h4>${e.episodes}episodes</h4>
+            <h3>${e.format}</h3>
+            <h4>${e.episodes} episodes</h4>
           </div>
+
           <div class="seasonsinfo">
-              <h3>${e.season},${e.seasonYear}</h3>
-              <h4>${e.status}</h4>
+            <h3>${e.season}, ${e.seasonYear}</h3>
+            <h4>${e.status}</h4>
           </div>
+        </div>
       </div>
+      </div>
+   
+  `;
 
-
-
-
-
-  </div>
-
-
-
-
-</div>
-
-
-
-
-
-
-`;
 			document
 				.querySelector("#top100Container")
 				.insertAdjacentHTML("beforeend", topcard);

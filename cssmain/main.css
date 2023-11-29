@@ -655,7 +655,7 @@ nav {
 	display: flex;
 	gap: 0.3125rem;
 }
-.gener a {
+.gener a{
 	text-decoration: none;
 	color: #ffff;
 	font-size: 0.75rem;
@@ -664,7 +664,6 @@ nav {
 	text-align: center;
 	padding: 5px 10px;
 	border-radius: 15px;
-	background-color: #19a6ba;
 	-webkit-border-radius: 0.9375rem;
 	-moz-border-radius: 0.9375rem;
 	-ms-border-radius: 0.9375rem;
@@ -674,6 +673,11 @@ nav {
 	-ms-transform: translate(50% 50%);
 	-o-transform: translate(50% 50%);
 }
+.getLinkTop{
+	color: #e8e6d8;
+	text-decoration: none;
+}
+
 .studio {
 	font-size: 0.9375rem;
 	font-weight: 600;

@@ -8,195 +8,63 @@
 </head>
 
 <body>
-    <!-- Sure, here are some CSS tasks related to font size, family, style, variant, and weight, line height, text decoration and transform, and letter spacing, along with the corresponding HTML code:
 
-**Font Size, Family, Style, Variant, & Weight**
+    <a href="#" id="getLink" class="cardSection">
+        <div class="ranking">
 
-1. **Font Size Challenge:**
-   * Create a simple HTML document with three different headings: `<h1>`, `<h2>`, and `<h3>`.
-   * Use CSS to set different font sizes for each heading level: 3rem for `<h1>`, 2rem for `<h2>`, and 1.5rem for `<h3>`.
+            <p class="rankingText" style="color: ${e.coverImage.color}" ;>#${increment}</p>
+        </div>
 
-**HTML:** -->
+        <div class="mainCard"
+            style="border-bottom: 0.25rem solid ${e.coverImage.color}; border-right: 0.25rem solid ${e.coverImage.color};">
+            <div class="leftsection">
+                <div class="mainCardImgSection">
+                    <img src=${e.coverImage.large} alt=${e.title.userPreferred} class="maincardImg">
+                </div>
+                <div class="nameNdGener">
+                    <h3 class="animeName">${e.title.userPreferred}</h3>
+                    <div class="gener">
+                        ${genreElements}
 
+                    </div>
+                </div>
+            </div>
+            <div class="rightsection">
 
-    h1 {
-    font-size: 3rem;
-    }
+                <div class="ratingemoji">
+                    <h3>${e.averageScore}%</h3>
+                    <i class="fa-regular fa-face-grin-hearts good  heart"></i>
+                    <i class="fa-regular fa-face-smile good invisible smile"></i>
+                    <i class="fa-regular fa-face-grin-beam-sweat average invisible grin"></i>
+                    <i class="fa-regular fa-face-sad-tear average invisible sad"></i>
+                    <i class="fa-regular fa-face-dizzy bad invisible dizzy"></i>
 
-    h2 {
-    font-size: 2rem;
-    }
-
-    h3 {
-    font-size: 1.5rem;
-    }
-    </style>
-
-    <h1>Heading 1</h1>
-    <h2>Heading 2</h2>
-    <h3>Heading 3</h3>
-
-
-
-    <!-- 2. **Font Family Challenge:**
-   * Create a simple HTML document with a `<p>` element.
-   * Use CSS to set a different font family for the `<p>` element: `sans-serif` or `serif`.
-   * Experiment with different font families to see how they affect the appearance of the text.
-
-**HTML:** -->
-
-
-    <style>
-        p {
-            font-family: sans-serif;
-        }
-    </style>
-
-    <p>This is a paragraph with a different font family.</p>
-
-    ```
-    <!-- 
-3. **Font Style Challenge:**
-   * Create a simple HTML document with a `<span>` element.
-   * Use CSS to apply different font styles to the `<span>` element: `italic`, `oblique`, or `normal`.
-
-**HTML:** -->
-
-    <style>
-        span {
-            font-style: italic;
-        }
-    </style>
-
-    <p>This is a paragraph with a <span>italic</span> word.</p>
-
-    <!-- ```
-
-4. **Font Variant Challenge:**
-   * Create a simple HTML document with a `<p>` element.
-   * Use CSS to apply the `small-caps` font variant to the `<p>` element.
-   * Experiment with different font variants to see how they affect the appearance of the text.
-
-**HTML:** -->
-
-
-    <style>
-        p {
-            font-variant: small-caps;
-        }
-    </style>
-
-    <p>This is a paragraph with the small-caps font variant.</p>
-
-    ```
-
-    <!-- 5. **Font Weight Challenge:**
-   * Create a simple HTML document with three different `<p>` elements.
-   * Use CSS to apply different font weights to each `<p>` element: `normal`, `bold`, and `lighter`.
-   * Experiment with different font weights to see how they affect the emphasis of the text.
-
-**HTML:** -->
-
-    <style>
-        p.normal {
-            font-weight: normal;
-        }
-
-        p.bold {
-            font-weight: bold;
-        }
-
-        p.lighter {
-            font-weight: lighter;
-        }
-    </style>
-    <p class="normal">This is a paragraph with normal font weight.</p>
-    <p class="bold">This is a paragraph with bold font weight.</p>
-    <p class="lighter">This is a paragraph with bold font weight.</p>
-
-    <!-- 1. **Color Challenge:**
-   * Create a simple HTML document with a `<div>` element.
-   * Use CSS to apply a background color of #f2f2f2 and a text color of #333 to the `<div>` element.
-   * Experiment with different color values to create a visually appealing color scheme for your page. -->
+                </div>
+                <div class="episodeinfo">
+                    <h3>${e.format}</h3>
+                    <h4>${e.episodes}episodes</h4>
+                </div>
+                <div class="seasonsinfo">
+                    <h3>${e.season},${e.seasonYear}</h3>
+                    <h4>${e.status}</h4>
+                </div>
+            </div>
 
 
 
-    <style>
-        div {
-            background-color: #f2f2f2;
-            color: #333;
-            padding: 1rem;
-        }
-    </style>
-    <div>This is a simple div with a background color and text color.</div>
 
-    <!-- 2. **Background Color Gradient Challenge:**
-   * Create a simple HTML document with a `<div>` element.
-   * Use CSS to create a linear gradient background for the `<div>` element.
-   * Experiment with different color values and gradient directions to create a visually striking background effect. -->
+        </div>
 
-    **HTML:**
-
-    <style>
-        div {
-            width: 100%;
-            height: 200px;
-            background-image: linear-gradient(to right, #f2f2f2, #333);
-            color: white;
-            text-align: center;
-            padding: 1rem;
-        }
-    </style>
-
-    <div>This is a div with a linear gradient background.</div>
+    </a>
 
 
 
-    <!-- **Gradients**
 
-3. **Radial Gradient Challenge:**
-   * Create a simple HTML document with a `<div>` element.
-   * Use CSS to apply a radial gradient background to the `<div>` element.
-   * Experiment with different color values and gradient positions to create a unique and eye-catching background effect. -->
+   
 
 
 
-    <style>
-        div {
-            width: 200px;
-            height: 200px;
-            background-image: radial-gradient(circle at center, #f2f2f2, #333);
-            border-radius: 50%;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-        }
-    </style>
 
-    <div>This is a div with a radial gradient background.</div>
-
-    ```
-
-    <!-- **Background Images**
-
-4. **Background Image Challenge:**
-   * Create a simple HTML document with a `<div>` element.
-   * Use CSS to apply a background image to the `<div>` element.
-   * Experiment with different background image URLs, positioning, and sizing to create a visually appealing design.
-
-<!DOCTYPE html> -->
-
-    <style>
-        div {
-            width: 500px;
-            height: 300px;
-            background-image: url("https://picsum.photos/500/300");
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
-
-    <div>This is a div with a background image.</div>
 
 </body>
 
