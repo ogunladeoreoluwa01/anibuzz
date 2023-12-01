@@ -9,62 +9,6 @@
 
 <body>
 
-    <a href="#" id="getLink" class="cardSection">
-        <div class="ranking">
-
-            <p class="rankingText" style="color: ${e.coverImage.color}" ;>#${increment}</p>
-        </div>
-
-        <div class="mainCard"
-            style="border-bottom: 0.25rem solid ${e.coverImage.color}; border-right: 0.25rem solid ${e.coverImage.color};">
-            <div class="leftsection">
-                <div class="mainCardImgSection">
-                    <img src=${e.coverImage.large} alt=${e.title.userPreferred} class="maincardImg">
-                </div>
-                <div class="nameNdGener">
-                    <h3 class="animeName">${e.title.userPreferred}</h3>
-                    <div class="gener">
-                        ${genreElements}
-
-                    </div>
-                </div>
-            </div>
-            <div class="rightsection">
-
-                <div class="ratingemoji">
-                    <h3>${e.averageScore}%</h3>
-                    <i class="fa-regular fa-face-grin-hearts good  heart"></i>
-                    <i class="fa-regular fa-face-smile good invisible smile"></i>
-                    <i class="fa-regular fa-face-grin-beam-sweat average invisible grin"></i>
-                    <i class="fa-regular fa-face-sad-tear average invisible sad"></i>
-                    <i class="fa-regular fa-face-dizzy bad invisible dizzy"></i>
-
-                </div>
-                <div class="episodeinfo">
-                    <h3>${e.format}</h3>
-                    <h4>${e.episodes}episodes</h4>
-                </div>
-                <div class="seasonsinfo">
-                    <h3>${e.season},${e.seasonYear}</h3>
-                    <h4>${e.status}</h4>
-                </div>
-            </div>
-
-
-
-
-        </div>
-
-    </a>
-
-
-
-
-   
-
-
-
-
 
 </body>
 

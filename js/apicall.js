@@ -150,7 +150,7 @@ fetch(url, {
                 <h1>Synopsis</h1>
                 <p>${element.description.toString()}</p>
               </div>
-              <a href="#"><button class="darkBtn herobtn" data-id="${
+              <a href="animecontent.html?id=${element.id}" id="link"><button class="darkBtn herobtn" data-id="${
 								element.id
 							}" >See more</button></a>
             </div>
@@ -336,3 +336,8 @@ document.addEventListener("DOMContentLoaded", function () {
 // });
 
 // startTimer();
+// Get the parent container
+
+
+
+
